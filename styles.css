@@ -1,0 +1,67 @@
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h2 {
+  margin: 0 auto;
+  font-size: 35px;
+  margin: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+.flex-container {
+  /* In order to use flex-box we need to first set our display property */
+  display: flex;
+  /* center the container horizontally */
+  justify-content: center;
+  /* this will center content vertically */
+  align-items: center;
+}
+
+/* tells the container to align the children in columns rather than rows */
+.flex-column {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.inputs {
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.flex-wrap {
+  /* tells the container to drop down once it reaches max-width */
+  flex-wrap: wrap;
+  /* three times the width of each .square element */
+  height: 432px;
+  width: 432px;
+}
+.square {
+  border: 2px solid rgba(0, 0, 0, 0.75);
+  height: 140px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+}
+.button {
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid black;
+  height: 55px;
+  width: 100px;
+  margin: 10px;
+}
+
+#board,
+#reset-button {
+  display: none;
+}
