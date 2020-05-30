@@ -61,7 +61,18 @@ input {
   margin: 10px;
 }
 
-#board,
-#reset-button {
+.show-board {
+  display: flex;
+}
+
+.show-reset-btn {
+  display: inline-block;
+}
+
+.show-h2 {
+  display: block;
+}
+
+.hide {
   display: none;
 }

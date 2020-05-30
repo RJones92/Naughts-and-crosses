@@ -1,6 +1,5 @@
 // --------------- Cached element references ---------------
-const squares = Array.from(document.getElementsByClassName("square"));
-const h2 = document.querySelector("h2");
+const squares = $(".square").get();
 
 // --------------- Modules ---------------
 
@@ -19,16 +18,13 @@ const game = (function () {
   let win = false;
 
   function startGame() {
-    player1Name =
-      Array.from(document.getElementsByName("player1Name"))[0].value || "X";
-    player2Name =
-      Array.from(document.getElementsByName("player2Name"))[0].value || "O";
+    player1Name = $("input[name='player1Name']").val() || "X";
+    player2Name = $("input[name='player2Name']").val() || "O";
 
     //show board, reset button and "It's your go" heading
-    document.getElementById("board").style.display = "flex";
-    document.getElementById("reset-button").style.display = "inline-block";
-    h2.textContent = `It's ${player1Name}'s go!`;
-    h2.style.display = "block";
+    $("#board").removeClass("hide").addClass("show-board");
+    $("#reset-button").removeClass("hide").addClass("show-reset-btn");
+    $("h2").text(`It's ${player1Name}'s go!`).addClass("show-h2");
   }
 
   function addMark(event) {
@@ -58,12 +54,13 @@ const game = (function () {
           : { mark: "X", playerName: player1Name };
 
       //Update the heading based on win status
-      h2.textContent =
+      $("h2").text(
         win === "Tie"
           ? "It's a tie!"
           : win
           ? `${winner} has won the game!`
-          : `It's ${turn.playerName}'s go`;
+          : `It's ${turn.playerName}'s go`
+      );
     }
   }
 
@@ -105,10 +102,10 @@ const game = (function () {
 
   function resetGame() {
     gameBoard.board = ["", "", "", "", "", "", "", "", ""];
-    document.getElementById("names").reset();
-    document.getElementById("board").style.display = "none";
-    document.getElementById("reset-button").style.display = "none";
-    h2.style.display = "none";
+    $("#names")[0].reset();
+    $("#board").removeClass("show-board").addClass("hide");
+    $("#reset-button").removeClass("show-reset-btn").addClass("hide");
+    $("h2").removeClass("show-h2").addClass("hide");
     render();
   }
   return { addMark, startGame, resetGame };
@@ -125,10 +122,6 @@ function render() {
 }
 
 // --------------- Event listeners ---------------
-document.getElementById("board").addEventListener("click", game.addMark);
-document
-  .getElementById("start-button")
-  .addEventListener("click", game.startGame);
-document
-  .getElementById("reset-button")
-  .addEventListener("click", game.resetGame);
+$("#board").click(game.addMark);
+$("#start-button").click(game.startGame);
+$("#reset-button").click(game.resetGame);

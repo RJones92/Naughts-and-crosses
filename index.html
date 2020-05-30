@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
-    <script defer src="./main.js"></script>
 
     <title>Tic Tac Toe</title>
   </head>
@@ -26,7 +25,7 @@
         </form>
         <button id="start-button" class="button">Start</button>
 
-        <div class="flex-container flex-wrap" id="board">
+        <div class="flex-container flex-wrap hide" id="board">
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
@@ -37,8 +36,14 @@
           <div class="square"></div>
           <div class="square"></div>
         </div>
-        <button id="reset-button" class="button">Reset</button>
+        <button id="reset-button" class="button hide">
+          Reset
+        </button>
       </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./main.js"></script>
   </body>
 </html>
